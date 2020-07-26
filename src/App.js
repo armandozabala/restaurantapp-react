@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router';
+
+import Ordenes from './components/pages/Ordenes'
+import Menu from "./components/pages/Menu";
+import NuevoPlato from "./components/pages/NuevoPlato";
+import Sidebar from './components/ui/Sidebar'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="md:flex min-h-screen">
+     
+      <Sidebar />
+
+      <div className="md:w-3/5 xl:w-4/5 p-6">
+        <Routes>
+          <Route path="/" element={<Ordenes />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/nuevo-plato" element={<NuevoPlato />} />
+        </Routes>
+      </div>
     </div>
   );
 }
